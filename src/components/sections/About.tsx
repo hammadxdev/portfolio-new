@@ -5,25 +5,37 @@ import { ArrowUpRight, Github, Linkedin } from "lucide-react";
 import { personal } from "../../data/portfolio";
 
 const services = [
-  { 
-    title: "Full-Stack Development", 
-    items: ["MERN Stack Applications", "Next.js SSR/SSG", "REST API Design & Integration"],
-    link: personal.github 
+  {
+    title: "Full-Stack Development",
+    items: [
+      "MERN Stack Applications",
+      "Next.js SSR/SSG",
+      "REST API Design & Integration",
+    ],
+    link: personal.github,
   },
-  { 
-    title: "Automation & Scraping", 
-    items: ["n8n Workflow Automation", "Selenium & BeautifulSoup Bots", "Data Extraction Pipelines"],
-    link: personal.github
+  {
+    title: "Automation & Scraping",
+    items: [
+      "n8n Workflow Automation",
+      "Selenium & BeautifulSoup Bots",
+      "Data Extraction Pipelines",
+    ],
+    link: personal.github,
   },
-  { 
-    title: "Database Engineering", 
-    items: ["MongoDB & PostgreSQL", "Airtable Integrations", "SQL Query Optimization"],
-    link: personal.github
+  {
+    title: "Database Engineering",
+    items: [
+      "MongoDB & PostgreSQL",
+      "Airtable Integrations",
+      "SQL Query Optimization",
+    ],
+    link: personal.github,
   },
-  { 
-    title: "Mobile Development", 
+  {
+    title: "Mobile Development",
     items: ["React Native Apps", "Cross-platform UI", "Push Notifications"],
-    link: personal.github
+    link: personal.github,
   },
 ];
 
@@ -31,20 +43,19 @@ export function About() {
   return (
     <section id="about" className="py-24 border-t border-border/60">
       <div className="max-w-7xl mx-auto px-6">
-
         <AnimatedSection className="mb-14">
           <div className="flex items-center gap-3 mb-6">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-muted-foreground">About Me</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+              About Me
+            </h3>
             <span className="section-line" />
           </div>
         </AnimatedSection>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-
           {/* ── LEFT — Photos collage ── */}
           <AnimatedSection direction="left" delay={0.1}>
             <div className="relative">
-
               {/* Main large photo */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
@@ -57,8 +68,12 @@ export function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 {/* Name tag at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-white font-bold text-xl">Muhammad Hammad</p>
-                  <p className="text-orange-400 text-sm font-medium">Full-Stack Developer · Lahore, PK</p>
+                  <p className="text-white font-bold text-xl">
+                    Muhammad Hammad
+                  </p>
+                  <p className="text-orange-400 text-sm font-medium">
+                    Full-Stack Developer · Lahore, PK
+                  </p>
                 </div>
               </div>
 
@@ -68,7 +83,11 @@ export function About() {
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  delay: 0.4,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 whileHover={{ scale: 1.05 }}
               >
                 <img
@@ -90,48 +109,68 @@ export function About() {
                 transition={{ delay: 0.5, duration: 0.4, type: "spring" }}
               >
                 <div className="text-3xl font-black leading-none">5+</div>
-                <div className="text-xs opacity-90 uppercase tracking-wide mt-0.5">Years Exp</div>
+                <div className="text-xs opacity-90 uppercase tracking-wide mt-0.5">
+                  Years Exp
+                </div>
               </motion.div>
             </div>
           </AnimatedSection>
 
           {/* ── RIGHT — Text & services ── */}
           <AnimatedSection direction="right" delay={0.15} className="lg:pt-4">
-
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] mb-6">
-              I build{" "}
-              <span className="text-orange-500">scalable web apps</span>{" "}
-              and{" "}
-              <span className="text-orange-500">automation systems</span>{" "}
+              I build <span className="text-orange-500">scalable web apps</span>{" "}
+              and <span className="text-orange-500">automation systems</span>{" "}
               that solve real problems.
             </h2>
 
             <div className="flex items-end gap-6 mb-6 pb-6 border-b border-border/50">
               <div>
-                <span className="text-5xl font-bold text-orange-500 leading-none">5+</span>
-                <div className="text-xs text-muted-foreground uppercase tracking-widest mt-1">Years<br/>Experience</div>
+                <span className="text-5xl font-bold text-orange-500 leading-none">
+                  5+
+                </span>
+                <div className="text-xs text-muted-foreground uppercase tracking-widest mt-1">
+                  Years
+                  <br />
+                  Experience
+                </div>
               </div>
               <div className="h-14 w-px bg-border" />
               <div>
                 <span className="text-5xl font-bold leading-none">20+</span>
-                <div className="text-xs text-muted-foreground uppercase tracking-widest mt-1">Projects<br/>Delivered</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-widest mt-1">
+                  Projects
+                  <br />
+                  Delivered
+                </div>
               </div>
               <div className="h-14 w-px bg-border" />
               <div>
                 <span className="text-5xl font-bold leading-none">4+</span>
-                <div className="text-xs text-muted-foreground uppercase tracking-widest mt-1">Tech<br/>Stacks</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-widest mt-1">
+                  Tech
+                  <br />
+                  Stacks
+                </div>
               </div>
             </div>
 
             <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
-              Based in <strong className="text-foreground">Lahore, Pakistan</strong>, I work with clients
-              worldwide delivering production-ready software. My stack spans the full spectrum —
-              React interfaces, Node.js APIs, Python automation, and n8n workflows.
+              Based in{" "}
+              <strong className="text-foreground">Lahore, Pakistan</strong>, I
+              work with clients worldwide delivering production-ready software.
+              My stack spans the full spectrum — React interfaces, Node.js APIs,
+              Python automation, and n8n workflows.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8 text-sm">
-              Whether it's architecting a real-time WebRTC platform, scraping data at scale,
-              or building a Next.js book platform with SSR — I bring technical depth and
-              <strong className="text-foreground"> creative problem-solving</strong> to every project.
+              Whether it's architecting a real-time WebRTC platform, scraping
+              data at scale, or building a Next.js book platform with SSR — I
+              bring technical depth and
+              <strong className="text-foreground">
+                {" "}
+                creative problem-solving
+              </strong>{" "}
+              to every project.
             </p>
 
             {/* Services list */}
@@ -159,7 +198,10 @@ export function About() {
                     </div>
                     <ul className="flex flex-wrap gap-1.5">
                       {svc.items.map((it) => (
-                        <li key={it} className="text-xs text-muted-foreground bg-muted/60 px-2.5 py-0.5 rounded-full">
+                        <li
+                          key={it}
+                          className="text-xs text-muted-foreground bg-muted/60 px-2.5 py-0.5 rounded-full"
+                        >
                           {it}
                         </li>
                       ))}
@@ -170,10 +212,20 @@ export function About() {
             </div>
 
             <div className="flex gap-3">
-              <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="btn-round gap-2 inline-flex">
+              <a
+                href={personal.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-round gap-2 inline-flex"
+              >
                 Connect on LinkedIn <Linkedin className="w-4 h-4" />
               </a>
-              <a href={personal.github} target="_blank" rel="noopener noreferrer" className="btn-round gap-2 inline-flex">
+              <a
+                href={personal.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-round gap-2 inline-flex"
+              >
                 View on GitHub <Github className="w-4 h-4" />
               </a>
             </div>

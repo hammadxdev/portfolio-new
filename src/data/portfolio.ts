@@ -128,7 +128,7 @@ export const projects = [
     tags: ["React", "Node.js", "WebRTC", "Socket.io", "MongoDB"],
     color: "purple",
     github: "https://github.com/hammadxdev/Streamify",
-    live: "https://github.com/hammadxdev/Streamify",
+    live: "https://streamify-h42k.onrender.com/",
     featured: true,
   },
   {
@@ -148,7 +148,7 @@ export const projects = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
     color: "amber",
     github: "https://github.com/hammadxdev/BookWise",
-    live: "https://github.com/hammadxdev/BookWise",
+    live: "https://book-wise-virid.vercel.app/sign-up",
     featured: true,
   },
   {
@@ -168,7 +168,7 @@ export const projects = [
     tags: ["React", "OMDB API", "REST API", "CSS"],
     color: "coral",
     github: "https://github.com/hammadxdev/Movie",
-    live: "https://github.com/hammadxdev/Movie",
+    live: "https://movie-app-six-ivory.vercel.app/",
     featured: false,
   },
   {
