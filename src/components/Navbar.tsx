@@ -16,6 +16,14 @@ const links = [
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <div className="w-9 h-9 rounded-full border border-border" />;
+
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
