@@ -17,7 +17,7 @@ const navLinks = [
 
 const contactMarquee = [
   personal.email,
-  "+92 XXX XXXXXXX",
+  "+92 343 6238542",
   personal.email,
   "Let's Build Together",
 ];
@@ -45,7 +45,7 @@ export function Contact() {
   return (
     <section id="contact" className="border-t border-border/60">
       {/* Marquee with contact info */}
-      <div className="bg-foreground text-background py-1">
+      <div className="bg-slate-950 text-white py-1">
         <Marquee items={contactMarquee} size="sm" dark />
       </div>
 

@@ -7,7 +7,13 @@ interface MarqueeProps {
   dark?: boolean;
 }
 
-export function Marquee({ items, reverse = false, className = "", size = "md", dark = false }: MarqueeProps) {
+export function Marquee({
+  items,
+  reverse = false,
+  className = "",
+  size = "md",
+  dark = false,
+}: MarqueeProps) {
   const sizeClass = {
     sm: "text-sm",
     md: "text-xl md:text-2xl font-semibold",
@@ -17,15 +23,19 @@ export function Marquee({ items, reverse = false, className = "", size = "md", d
   const doubled = [...items, ...items];
 
   return (
-    <div className={`marquee-wrap py-4 ${className}`}>
+    <div className={`marquee-wrap py-4 ${className} `}>
       <div className={reverse ? "marquee-track-rev" : "marquee-track"}>
         {doubled.map((item, i) => (
           <span
             key={i}
             className={`inline-flex items-center gap-4 px-4 ${sizeClass} ${
               dark
-                ? i % 2 === 0 ? "text-white" : "text-transparent [-webkit-text-stroke:1px_white]"
-                : i % 2 === 0 ? "text-foreground" : "text-transparent [-webkit-text-stroke:1px_hsl(var(--foreground))]"
+                ? i % 2 === 0
+                  ? "text-white"
+                  : "text-transparent [-webkit-text-stroke:1px_white]"
+                : i % 2 === 0
+                  ? "text-foreground"
+                  : "text-transparent [-webkit-text-stroke:1px_hsl(var(--foreground))]"
             }`}
           >
             {item}
