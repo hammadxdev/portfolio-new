@@ -91,7 +91,7 @@ export function About() {
                 whileHover={{ scale: 1.05 }}
               >
                 <img
-                  src="/images/hero-profile.jpg"
+                  src="/images/profile.png"
                   alt="Muhammad Hammad"
                   className="w-full h-full object-cover object-top"
                 />

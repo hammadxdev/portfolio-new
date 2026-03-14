@@ -228,7 +228,7 @@ export function Hero() {
               {/* Orange gradient overlay at bottom */}
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-orange-500/20 to-transparent rounded-b-2xl z-10 pointer-events-none" />
               <img
-                src="/images/hero-profile.jpg"
+                src="/images/profile.png"
                 alt="Muhammad Hammad"
                 className="w-full rounded-2xl object-cover object-top shadow-2xl"
                 style={{ maxHeight: "70vh", objectPosition: "top center" }}
