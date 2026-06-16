@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Moon, Sun, X, Menu } from "lucide-react";
-import { personal } from "../data/portfolio";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -16,18 +15,11 @@ const links = [
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return <div className="w-9 h-9 rounded-full border border-border" />;
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:border-orange-500 transition-colors"
+      className="w-9 h-9 rounded-full glass-pill flex items-center justify-center hover:border-orange-500 transition-colors"
     >
       <AnimatePresence mode="wait">
         {theme === "dark" ? (
@@ -66,7 +58,7 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/60 shadow-sm" : "bg-transparent"
+          scrolled ? "glass-panel border-x-0 border-t-0 rounded-none" : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
@@ -94,7 +86,7 @@ export function Navbar() {
               Let's Talk <span>↗</span>
             </button>
             <button
-              className="lg:hidden p-2 rounded-lg border border-border"
+            className="lg:hidden p-2 rounded-lg glass-pill"
               onClick={() => setMobileOpen(true)}
             >
               <Menu className="w-5 h-5" />
@@ -113,13 +105,13 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-background border-l border-border flex flex-col p-8"
+              className="fixed top-0 right-0 bottom-0 z-50 w-72 glass-panel border-y-0 border-r-0 rounded-l-2xl flex flex-col p-8"
               initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
             >
               <div className="flex items-center justify-between mb-10">
                 <span className="text-xl font-bold">H<span className="text-orange-500">a</span>mmad</span>
-                <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg hover:bg-muted">
+                <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg glass-pill hover:border-orange-500 transition-colors">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -128,7 +120,7 @@ export function Navbar() {
                   <motion.button
                     key={l.href}
                     onClick={() => go(l.href)}
-                    className="text-left py-3 px-3 rounded-lg text-base hover:bg-muted hover:text-orange-500 transition-colors font-medium"
+                    className="text-left py-3 px-3 rounded-lg text-base hover:bg-orange-500/10 hover:text-orange-500 transition-colors font-medium"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}

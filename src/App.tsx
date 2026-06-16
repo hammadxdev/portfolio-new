@@ -15,14 +15,14 @@ const midMarquee = [
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground antialiased">
+    <div className="site-shell min-h-screen text-foreground antialiased">
       <Navbar />
       <main>
         <Hero />
         <About />
         <Skills />
         {/* Mid marquee divider — like Pertest's scrolling ticker */}
-        <div className="border-y border-border/60 py-1 overflow-hidden">
+        <div className="glass-panel border-x-0 rounded-none py-1 overflow-hidden">
           <Marquee items={midMarquee} size="md" reverse />
         </div>
         <Projects />

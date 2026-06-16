@@ -48,7 +48,8 @@ export function Projects() {
   const visible = projects.filter((p) => matches(p, active));
 
   return (
-    <section id="projects" className="py-24 border-t border-border/60">
+    <section id="projects" className="py-24 border-t border-border/60 relative overflow-hidden">
+      <div className="absolute -right-24 top-20 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6">
 
         <AnimatedSection className="mb-12">
@@ -65,8 +66,8 @@ export function Projects() {
                   onClick={() => setActive(f)}
                   className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 ${
                     active === f
-                      ? "bg-orange-500 border-orange-500 text-white"
-                      : "border-border text-muted-foreground hover:border-orange-400 hover:text-orange-500"
+                      ? "bg-orange-500 border-orange-500 text-white shadow-lg shadow-orange-500/20"
+                      : "glass-pill text-muted-foreground hover:border-orange-400 hover:text-orange-500"
                   }`}
                 >
                   {f}
@@ -91,7 +92,7 @@ export function Projects() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className={`project-card group relative rounded-2xl border border-border/60 bg-card overflow-hidden
+                className={`project-card group relative rounded-2xl glass-card overflow-hidden
                             transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${accentBorder[project.color]}`}
               >
                 <div className={`h-1 w-full ${colorStrip[project.color]}`} />

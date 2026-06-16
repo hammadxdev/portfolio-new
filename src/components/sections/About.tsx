@@ -41,7 +41,8 @@ const services = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 border-t border-border/60">
+    <section id="about" className="py-24 border-t border-border/60 relative overflow-hidden">
+      <div className="absolute -left-24 top-32 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="mb-14">
           <div className="flex items-center gap-3 mb-6">
@@ -57,15 +58,15 @@ export function About() {
           <AnimatedSection direction="left" delay={0.1}>
             <div className="relative">
               {/* Main large photo */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl glass-panel p-3">
                 <img
                   src="/images/about-profile.jpg"
                   alt="Muhammad Hammad"
-                  className="w-full object-cover"
+                  className="w-full object-cover rounded-[1.5rem]"
                   style={{ height: "520px", objectPosition: "center top" }}
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-3 rounded-[1.5rem] bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 {/* Name tag at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-white font-bold text-xl">
@@ -79,7 +80,7 @@ export function About() {
 
               {/* Small inset photo — bottom right */}
               <motion.div
-                className="absolute -bottom-6 -right-4 w-40 h-48 rounded-2xl overflow-hidden border-4 border-background shadow-xl z-10"
+                className="absolute -bottom-6 -right-4 w-40 h-48 rounded-2xl overflow-hidden border-4 border-background shadow-xl z-10 glass-card p-1"
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -93,7 +94,7 @@ export function About() {
                 <img
                   src="/images/profile.png"
                   alt="Muhammad Hammad"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top rounded-xl"
                 />
               </motion.div>
 
@@ -102,7 +103,7 @@ export function About() {
 
               {/* Experience badge — top right */}
               <motion.div
-                className="absolute top-6 right-6 z-20 bg-orange-500 text-white rounded-2xl p-4 shadow-xl"
+                className="absolute top-6 right-6 z-20 rounded-2xl border border-orange-300/40 bg-orange-500/90 text-white p-4 shadow-xl backdrop-blur-xl"
                 initial={{ opacity: 0, scale: 0.7 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -174,14 +175,14 @@ export function About() {
             </p>
 
             {/* Services list */}
-            <div className="space-y-0 mb-8">
+            <div className="glass-panel rounded-2xl overflow-hidden mb-8 px-3">
               {services.map((svc, i) => (
                 <a
                   key={svc.title}
                   href={svc.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="service-item py-4 px-1 group cursor-pointer"
+                  className="service-item block py-4 px-3 group cursor-pointer"
                 >
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}

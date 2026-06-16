@@ -18,7 +18,7 @@ function TimelineCard({ item, index }: { item: typeof journey[0]; index: number 
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-card border border-border/60 rounded-2xl p-5 hover:border-orange-400/50 transition-colors duration-300 text-right"
+            className="glass-card rounded-2xl p-5 hover:border-orange-400/50 transition-all duration-300 text-right hover:-translate-y-1"
           >
             <div className="flex items-center justify-end gap-2 mb-2">
               <span className="text-xs font-mono text-orange-500 font-bold">{item.year}</span>
@@ -63,7 +63,7 @@ function TimelineCard({ item, index }: { item: typeof journey[0]; index: number 
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-card border border-border/60 rounded-2xl p-5 hover:border-orange-400/50 transition-colors duration-300"
+            className="glass-card rounded-2xl p-5 hover:border-orange-400/50 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex items-center gap-2 mb-2">
               <span className="text-xl">{item.icon}</span>
@@ -87,7 +87,8 @@ function TimelineCard({ item, index }: { item: typeof journey[0]; index: number 
 
 export function Journey() {
   return (
-    <section id="journey" className="py-24 border-t border-border/60 bg-muted/10">
+    <section id="journey" className="py-24 border-t border-border/60 bg-muted/5 relative overflow-hidden">
+      <div className="absolute left-1/2 top-24 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-500/10 blur-3xl pointer-events-none" />
       <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection className="mb-16 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -116,7 +117,7 @@ export function Journey() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="bg-card border border-border/60 rounded-2xl p-5 flex gap-4"
+              className="glass-card rounded-2xl p-5 flex gap-4"
             >
               <div className="flex flex-col items-center">
                 <span className="text-2xl">{item.icon}</span>

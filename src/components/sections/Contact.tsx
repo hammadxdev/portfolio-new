@@ -22,8 +22,27 @@ const contactMarquee = [
   "Let's Build Together",
 ];
 
+type ContactForm = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
+const formFields: Array<{
+  label: string;
+  name: keyof Omit<ContactForm, "message">;
+  type: string;
+}> = [
+  { label: "First Name", name: "firstName", type: "text" },
+  { label: "Last Name", name: "lastName", type: "text" },
+  { label: "Email", name: "email", type: "email" },
+  { label: "Phone Number", name: "phone", type: "tel" },
+];
+
 export function Contact() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<ContactForm>({
     firstName: "",
     lastName: "",
     email: "",
@@ -43,13 +62,14 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="border-t border-border/60">
+    <section id="contact" className="border-t border-border/60 relative overflow-hidden">
+      <div className="absolute -left-24 top-48 h-80 w-80 rounded-full bg-rose-500/10 blur-3xl pointer-events-none" />
       {/* Marquee with contact info */}
       <div className="bg-slate-950 text-white py-1">
         <Marquee items={contactMarquee} size="sm" dark />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <div className="max-w-7xl mx-auto px-6 py-24 relative">
         <AnimatedSection className="mb-16">
           <div className="flex items-center gap-3 mb-4">
             <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-muted-foreground">
@@ -64,7 +84,7 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-[1fr_auto_380px] gap-16 items-start">
           {/* Form */}
-          <AnimatedSection direction="left" delay={0.1}>
+          <AnimatedSection direction="left" delay={0.1} className="glass-panel rounded-2xl p-6 md:p-8">
             <p className="text-muted-foreground mb-8 leading-relaxed">
               I am always open to discussing new projects, creative ideas, or
               opportunities. Feel free to reach out via email or connect on
@@ -75,7 +95,7 @@ export function Contact() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="p-8 rounded-2xl border border-green-500/30 bg-green-500/5 text-center"
+                className="p-8 rounded-2xl border border-green-500/30 bg-green-500/5 text-center backdrop-blur-xl"
               >
                 <div className="text-4xl mb-3">✅</div>
                 <h3 className="text-lg font-bold mb-1">Message sent!</h3>
@@ -86,12 +106,7 @@ export function Contact() {
             ) : (
               <form onSubmit={submit}>
                 <div className="grid grid-cols-2 gap-6 mb-6">
-                  {[
-                    { label: "First Name", name: "firstName", type: "text" },
-                    { label: "Last Name", name: "lastName", type: "text" },
-                    { label: "Email", name: "email", type: "email" },
-                    { label: "Phone Number", name: "phone", type: "tel" },
-                  ].map((f) => (
+                  {formFields.map((f) => (
                     <div key={f.name}>
                       <label className="contact-label block mb-2">
                         {f.label}
@@ -100,7 +115,7 @@ export function Contact() {
                         type={f.type}
                         name={f.name}
                         className="contact-input"
-                        value={(form as any)[f.name]}
+                        value={form[f.name]}
                         onChange={handle}
                         required={f.name !== "phone"}
                       />
@@ -130,10 +145,10 @@ export function Contact() {
           </AnimatedSection>
 
           {/* Divider */}
-          <div className="hidden lg:block w-px bg-border self-stretch" />
+          <div className="hidden lg:block w-px bg-border/60 self-stretch" />
 
           {/* Nav + socials */}
-          <AnimatedSection direction="right" delay={0.15}>
+          <AnimatedSection direction="right" delay={0.15} className="glass-panel rounded-2xl p-6 md:p-8">
             {/* Social links */}
             <div className="mb-10 space-y-4">
               <a
@@ -195,7 +210,7 @@ export function Contact() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm border border-border rounded-full px-4 py-2 hover:border-orange-500 hover:text-orange-500 transition-colors"
+                  className="flex items-center gap-2 text-sm glass-pill rounded-full px-4 py-2 hover:border-orange-500 hover:text-orange-500 transition-colors"
                   whileHover={{ scale: 1.04 }}
                 >
                   <Icon className="w-4 h-4" />
@@ -208,7 +223,7 @@ export function Contact() {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-border/60 py-6">
+      <div className="glass-panel border-x-0 border-b-0 rounded-none py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-2">
           <span className="text-xl font-bold">
             H<span className="text-orange-500">a</span>mmad

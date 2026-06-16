@@ -42,6 +42,7 @@ export function Hero() {
           backgroundSize: "40px 40px",
         }}
       />
+      <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-rose-500/10 blur-3xl pointer-events-none" />
       {/* Orange glow behind image */}
       <motion.div
         className="absolute top-24 right-[4%] w-[420px] h-[420px] rounded-full bg-orange-500/15 blur-3xl pointer-events-none"
@@ -55,7 +56,7 @@ export function Hero() {
           <motion.div variants={container} initial="hidden" animate="visible">
             <motion.div
               variants={item}
-              className="flex items-center gap-3 mb-6"
+              className="glass-pill inline-flex items-center gap-3 mb-6 rounded-full px-4 py-2"
             >
               <span className="text-base md:text-lg text-muted-foreground font-medium">
                 Hi there!
@@ -137,7 +138,7 @@ export function Hero() {
             {/* Stats */}
             <motion.div
               variants={item}
-              className="grid grid-cols-3 gap-6 pt-8 border-t border-border/50"
+              className="glass-panel grid grid-cols-3 gap-6 rounded-2xl p-5"
             >
               {[
                 { num: "5+", label: "Years\nCoding" },
@@ -164,11 +165,11 @@ export function Hero() {
             className="relative flex justify-center lg:justify-end items-end self-end"
           >
             {/* Orange accent border frame */}
-            <div className="absolute bottom-0 right-4 w-[88%] h-[92%] rounded-2xl border-2 border-orange-500/30 z-0" />
+            <div className="absolute bottom-0 right-4 w-[88%] h-[92%] rounded-[2rem] border border-orange-500/30 bg-orange-500/5 z-0" />
 
             {/* Floating badge — top left */}
             <motion.div
-              className="absolute top-8 -left-4 z-20 bg-background border border-border/60 rounded-2xl px-4 py-3 shadow-lg"
+              className="absolute top-8 -left-4 z-20 glass-card rounded-2xl px-4 py-3"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
@@ -184,7 +185,7 @@ export function Hero() {
 
             {/* Floating badge — right */}
             <motion.div
-              className="absolute top-1/3 -right-2 lg:-right-6 z-20 bg-orange-500 text-white rounded-2xl px-4 py-3 shadow-lg"
+              className="absolute top-1/3 -right-2 lg:-right-6 z-20 rounded-2xl border border-orange-300/40 bg-orange-500/90 text-white px-4 py-3 shadow-lg backdrop-blur-xl"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
@@ -212,7 +213,7 @@ export function Hero() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-background border border-border/60 flex items-center justify-center hover:border-orange-500 hover:text-orange-500 transition-colors shadow-sm"
+                  className="w-9 h-9 rounded-full glass-pill flex items-center justify-center hover:border-orange-500 hover:text-orange-500 transition-colors"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -221,16 +222,16 @@ export function Hero() {
 
             {/* THE PHOTO */}
             <motion.div
-              className="relative z-10 w-[80%] max-w-sm"
+              className="relative z-10 w-[80%] max-w-sm rounded-[2rem] p-3 glass-panel"
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}
             >
               {/* Orange gradient overlay at bottom */}
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-orange-500/20 to-transparent rounded-b-2xl z-10 pointer-events-none" />
+              <div className="absolute inset-x-3 bottom-3 h-32 bg-gradient-to-t from-orange-500/25 to-transparent rounded-b-[1.5rem] z-10 pointer-events-none" />
               <img
                 src="/images/profile.png"
                 alt="Muhammad Hammad"
-                className="w-full rounded-2xl object-cover object-top shadow-2xl"
+                className="w-full rounded-[1.5rem] object-cover object-top shadow-2xl"
                 style={{ maxHeight: "70vh", objectPosition: "top center" }}
               />
             </motion.div>
@@ -239,7 +240,7 @@ export function Hero() {
       </div>
 
       {/* Marquee skills ticker */}
-      <div className="border-y border-border/60 bg-muted/30 mt-8">
+      <div className="glass-panel border-x-0 rounded-none mt-8">
         <Marquee items={skillsMarquee} size="sm" />
       </div>
     </section>

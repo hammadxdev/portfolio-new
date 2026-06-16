@@ -1,8 +1,13 @@
 // src/components/sections/Skills.tsx
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { AnimatedSection, StaggerWrap, fadeUp } from "../AnimatedSection";
+import { AnimatedSection, StaggerWrap } from "../AnimatedSection";
 import { skills } from "../../data/portfolio";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
+};
 
 const colorBar: Record<string, string> = {
   blue: "bg-blue-500",
@@ -54,8 +59,9 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="py-24 border-t border-border/60 bg-muted/20"
+      className="py-24 border-t border-border/60 bg-muted/10 relative overflow-hidden"
     >
+      <div className="absolute right-0 top-16 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -73,12 +79,12 @@ export function Skills() {
           </div>
         </AnimatedSection>
 
-        <StaggerWrap className="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-border/40 rounded-2xl overflow-hidden border border-border/40">
+        <StaggerWrap className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
           {skills.map((group) => (
             <motion.div
               key={group.category}
               variants={fadeUp}
-              className="bg-background p-8"
+              className="glass-card rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/40"
             >
               <div
                 className={`text-xs font-bold uppercase tracking-widest mb-6 ${colorText[group.color]}`}
